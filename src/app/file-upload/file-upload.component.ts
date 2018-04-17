@@ -48,6 +48,7 @@ fileChange(event) {
         headers.append('Access-Control-Allow-Methods', 'GET, POST');
         headers.append('Access-Control-Allow-Origin', '*');
         headers.append('Content-Type', 'multipart/form-data');
+        // headers.append('Content-type' , 'application/json;charset=UTF-8');
         headers.append('Accept', 'application/json');
         headers.append('Accept', 'Text');
          // let options = new RequestOptions();
