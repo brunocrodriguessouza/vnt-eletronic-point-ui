@@ -1,0 +1,60 @@
+<app-file-upload></app-file-upload>
+<div>
+    <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+  </mat-form-field>
+</div>
+<div class="main">
+  
+  <div class="employee">
+
+    <mat-table [dataSource]="data">
+      <ng-container matColumnDef="registrationNumber">
+          <mat-header-cell *matHeaderCellDef>Matrícula</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.registrationNumber}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="employeeName">
+          <mat-header-cell *matHeaderCellDef>Funcionário</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.employeeName}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="position">
+          <mat-header-cell *matHeaderCellDef>Cargo</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.position}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="costCenter">
+          <mat-header-cell *matHeaderCellDef>Centro de Custo</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.costCenter}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'highlight': selectedRow == row}" (click)="updateRightTable(row)"></mat-row>
+    </mat-table>
+  </div>
+    <div class="worked-days">
+    <mat-table [dataSource]="timesheet" *ngIf="timesheet.length > 0">
+      <ng-container matColumnDef="day">
+          <mat-header-cell *matHeaderCellDef>Dia</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.day}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="weekDay">
+          <mat-header-cell *matHeaderCellDef>Semana</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.weekDay}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="code">
+          <mat-header-cell *matHeaderCellDef>Código</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.code}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="startTime">
+          <mat-header-cell *matHeaderCellDef>Início</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.startTime}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="endTime">
+          <mat-header-cell *matHeaderCellDef>Fim</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.endTime}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumnsDays"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumnsDays;"></mat-row>
+    </mat-table>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+.main {
+   width: 100%;
+}
+.employee {
+   float: left;
+   width: 50%;
+   padding: 0 10px 0 10px;
+}
+.worked-days {
+   float: left;
+   width: 50%;
+   padding: 0 10px 0 10px;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 300px;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.search{
+   width: 100%;
+   padding: 0 10px 0 10px;
+}
+
+.highlight{
+  background: #D3D3D3;
+   
+}
