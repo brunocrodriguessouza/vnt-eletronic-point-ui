@@ -26,7 +26,7 @@ onUpload(event) {
 fileChange(event) {
     let thisref = this;
     let fileList: FileList = event.target.files;
-    
+
     if (fileList.length > 0) {
         let file: File = fileList[0];
         let formData: FormData = new FormData();
@@ -34,7 +34,7 @@ fileChange(event) {
         let headers = new Headers();
 
         let fileReader = new FileReader();
-        fileReader.readAsText(file, 'ANSI');
+        fileReader.readAsText(file, 'windows-1252');
 
        fileReader.onload = function(eventFile) {
           let fileContent = eventFile.currentTarget['result'];
