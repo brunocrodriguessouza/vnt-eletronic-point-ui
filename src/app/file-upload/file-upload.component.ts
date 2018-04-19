@@ -34,7 +34,7 @@ fileChange(event) {
         let headers = new Headers();
 
         let fileReader = new FileReader();
-        fileReader.readAsText(file, 'UTF-8');
+        fileReader.readAsText(file, 'ANSI');
 
        fileReader.onload = function(eventFile) {
           debugger;
@@ -47,12 +47,9 @@ fileChange(event) {
         headers.append('Access-Control-Allow-Headers', 'Text');
         headers.append('Access-Control-Allow-Methods', 'GET, POST');
         headers.append('Access-Control-Allow-Origin', '*');
-        headers.append('Content-Type', 'multipart/form-data');
         // headers.append('Content-type' , 'application/json;charset=UTF-8');
         headers.append('Accept', 'application/json');
-        headers.append('Accept', 'Text');
-         // let options = new RequestOptions();
-         // options.headers = headers;
+        // headers.append('Accept', 'text');
         const options = new RequestOptions({ headers: headers });
         http.post('http://staging-enterprise/ApiPonto/api/file', fileContent, options)
              .subscribe(
