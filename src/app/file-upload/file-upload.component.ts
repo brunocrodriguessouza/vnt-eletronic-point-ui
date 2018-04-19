@@ -13,7 +13,7 @@ export class FileUploadComponent implements OnInit {
   public image: Array<any> = [];
 
   constructor(private fileService: FileService, private http: Http) {
-
+  
   }
 
   ngOnInit() {
@@ -25,7 +25,8 @@ onUpload(event) {
 
 fileChange(event) {
     debugger;
-    let http = this.http;
+   // let http = this.http;
+    let thisref = this;
     let fileList: FileList = event.target.files;
     if (fileList.length > 0) {
         let file: File = fileList[0];
@@ -51,9 +52,13 @@ fileChange(event) {
         headers.append('Accept', 'application/json');
         // headers.append('Accept', 'text');
         const options = new RequestOptions({ headers: headers });
-        http.post('http://staging-enterprise/ApiPonto/api/file', fileContent, options)
+        thisref.http.post('http://staging-enterprise/ApiPonto/api/file', fileContent, options)
              .subscribe(
-                 data => console.log(data.json()),
+                 data => {
+                    thisref.fileService.data = data.json();
+                    console.log(data.json());
+                  }
+                 ,
                  error => console.log(error)
              );
          };

@@ -6,6 +6,8 @@ export class FileService {
 
   constructor() { }
 
+  public data: any;
+
     public sendFile(item): Observable<any> {
       return new Observable();
     }
