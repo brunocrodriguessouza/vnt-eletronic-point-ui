@@ -52,7 +52,8 @@ export class EmployeesListComponent implements OnInit {
   }
 
   public constructor(private fileService: FileService) {
-    this.data = new MatTableDataSource(this.fileService.data);
+    // this.data = new MatTableDataSource(this.fileService.data);
+    this.fileService.dataUpdated.subscribe(response  => this.data = new MatTableDataSource(response));
   }
 
   public ngOnInit(): void {

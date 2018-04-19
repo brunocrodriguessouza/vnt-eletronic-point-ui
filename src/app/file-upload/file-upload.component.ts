@@ -13,7 +13,7 @@ export class FileUploadComponent implements OnInit {
   public image: Array<any> = [];
 
   constructor(private fileService: FileService, private http: Http) {
-  
+
   }
 
   ngOnInit() {
@@ -24,10 +24,9 @@ onUpload(event) {
 }
 
 fileChange(event) {
-    debugger;
-   // let http = this.http;
     let thisref = this;
     let fileList: FileList = event.target.files;
+    
     if (fileList.length > 0) {
         let file: File = fileList[0];
         let formData: FormData = new FormData();
@@ -38,7 +37,6 @@ fileChange(event) {
         fileReader.readAsText(file, 'ANSI');
 
        fileReader.onload = function(eventFile) {
-          debugger;
           let fileContent = eventFile.currentTarget['result'];
           console.log("fileReader.onload");
           console.log(eventFile);
