@@ -54,7 +54,7 @@
         </ng-container>
         <ng-container matColumnDef="duration">
           <mat-header-cell *matHeaderCellDef>Jornada</mat-header-cell>
-          <mat-cell *matCellDef="let element">{{element.duration}} </mat-cell>
+          <mat-cell *matCellDef="let element" [ngClass]="showHoursWorked(element.duration)">{{element.duration}}</mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumnsDays"></mat-header-row>

@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { FileService } from './../file.service';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
@@ -52,9 +53,27 @@ export class EmployeesListComponent implements OnInit {
     this.timesheet = data.registers;
   }
 
+  showHoursWorked(hourElement) {
+    if (hourElement != null) {
+      const hourConverted = hourElement.split(':');
+      const hour = parseInt(hourConverted[0], 10) * 60 * 60 * 1000;
+      console.log(hourConverted);
+      const min = parseInt(hourConverted[1], 10) * 60 * 1000;
+      console.log(min);
+
+      const fullTime = hour + min;
+      console.log(fullTime);
+
+      if ((fullTime - 28800000) >= 0) {
+        return { 'positive-hour': true };
+      } else {
+        return { 'negative-hour': true };
+      }
+    }
+  }
+
   public constructor(private fileService: FileService) {
-    // this.data = new MatTableDataSource(this.fileService.data);
-    this.fileService.dataUpdated.subscribe(response  => this.data = new MatTableDataSource(response));
+    this.fileService.dataUpdated.subscribe(response => this.data = new MatTableDataSource(response));
   }
 
   public ngOnInit(): void {

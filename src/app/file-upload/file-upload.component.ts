@@ -48,7 +48,7 @@ fileChange(event) {
         headers.append('Access-Control-Allow-Origin', '*');
         // headers.append('Content-type' , 'application/json;charset=UTF-8');
         headers.append('Accept', 'application/json');
-        // headers.append('Accept', 'text');
+        headers.append('Accept', 'text');
         const options = new RequestOptions({ headers: headers });
         thisref.http.post('http://staging-enterprise/ApiPonto/api/file', fileContent, options)
              .subscribe(

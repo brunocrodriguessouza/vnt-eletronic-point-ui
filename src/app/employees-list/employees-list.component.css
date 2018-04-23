@@ -30,6 +30,13 @@
 }
 
 .highlight{
-  background: #D3D3D3;
-   
+  background: #D3D3D3; 
+}
+
+.negative-hour {
+  color: #ff0000; 
+}
+
+.positive-hour {
+  color: #006600; 
 }
