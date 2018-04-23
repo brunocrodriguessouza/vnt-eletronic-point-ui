@@ -52,6 +52,10 @@
           <mat-header-cell *matHeaderCellDef>Fim</mat-header-cell>
           <mat-cell *matCellDef="let element">{{element.endTime}} </mat-cell>
         </ng-container>
+        <ng-container matColumnDef="duration">
+          <mat-header-cell *matHeaderCellDef>Jornada</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.duration}} </mat-cell>
+        </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumnsDays"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumnsDays;"></mat-row>

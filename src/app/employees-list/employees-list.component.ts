@@ -22,7 +22,8 @@ export class EmployeesListComponent implements OnInit {
     'weekDay',
     'code',
     'startTime',
-    'endTime'
+    'endTime',
+    'duration'
   ];
   public page: number = 1;
   public itemsPerPage: number = 10;
