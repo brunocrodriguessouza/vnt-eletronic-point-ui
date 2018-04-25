@@ -53,7 +53,7 @@ export class EmployeesListComponent implements OnInit {
     this.timesheet = data.registers;
   }
 
-  showHoursWorked(hourElement) {
+  showHoursWorked(hourElement, weekDay) {
     if (hourElement != null) {
       const hourConverted = hourElement.split(':');
       const hour = parseInt(hourConverted[0], 10) * 60 * 60 * 1000;
@@ -64,7 +64,7 @@ export class EmployeesListComponent implements OnInit {
       const fullTime = hour + min;
       console.log(fullTime);
 
-      if ((fullTime - 28800000) >= 0) {
+      if (((fullTime - 28800000) >= 0) || (['Sab', 'Dom'].indexOf(weekDay) >= 0) ) {
         return { 'positive-hour': true };
       } else {
         return { 'negative-hour': true };
